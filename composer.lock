@@ -1,0 +1,53 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cafa0d735cbbfa707b0e98ed48bf7fed",
+    "packages": [
+        {
+            "name": "nimarya/simple",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nimarya/simple.git",
+                "reference": "fce64937f1582ee2a3f1ed90073cb48e05953535"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nimarya/simple/zipball/fce64937f1582ee2a3f1ed90073cb48e05953535",
+                "reference": "fce64937f1582ee2a3f1ed90073cb48e05953535",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nimarya\\Simple\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "my library",
+            "support": {
+                "issues": "https://github.com/nimarya/simple/issues",
+                "source": "https://github.com/nimarya/simple/tree/v1.0.2"
+            },
+            "time": "2022-06-10T18:49:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
