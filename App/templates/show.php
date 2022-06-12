@@ -10,22 +10,22 @@
 </head>
 
 <body>
-    <img src="<?php echo $data['book']['image']; ?>" alt="kitten" class="image">
-    <h2><?php echo $data['book']['title']; ?> </h2>
-    <h3><?php echo $data['book']['author']; ?> </h3>
-    <h3><?php echo $data['book']['price']; ?> рублей </h3>
+    <img src="<?php echo $book->getImage(); ?>" alt="kitten" class="image">
+    <h2><?php echo $book->getTitle(); ?> </h2>
+    <h3><?php echo $book->getAuthor(); ?> </h3>
+    <h3><?php echo $book->getPrice(); ?> рублей </h3>
     <div class="containerinfo">
         <div class="info">
             <p><b>Описание:</b></p>
-            <p><?php echo $data['book']['description']; ?></p>
+            <p><?php echo $book->getDescription(); ?></p>
         </div>
         <div class="info">
             <p><b>Отзывы:</b></p>
 
-            <?php foreach ($data['feedback'] as $onerecord) {
-                echo "<b>" . $onerecord['name'] . "</b>";
+            <?php foreach ($comments as $comment) {
+                echo "<b>" . $comment->getName() . "</b>";
                 echo ':';
-                echo  $onerecord['opinion'];
+                echo  $comment->getOpinion();
             ?>
                 <form action="secondpage.php?id=<?php echo $data['book']['id']; ?>" method="post">
                     <input type="checkbox" name="id" value="<?php echo $onerecord['id']; ?>" />

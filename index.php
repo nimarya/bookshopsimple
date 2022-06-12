@@ -31,10 +31,9 @@ $view->display(__DIR__ . '/templates/mainpage.php', $data);
 require_once './autoload.php';
 require_once './vendor/autoload.php';
 
-use App\Entities\Book;
-use Nimarya\Simple\Entities\View;
+use App\Controllers\BooksController;
 
-$view = new View();
-$book = new Book;
-$view->generator = Book::findEach();
-$view->display(__DIR__ . '/App/templates/mainpage.php');
+$controller = new BooksController(2);
+//$controller->action('Index');
+
+$controller->action('Show');
