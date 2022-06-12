@@ -1,5 +1,5 @@
 <?php
-
+/*
 require __DIR__ . '/classes/DataBase.php';
 require __DIR__ . '/classes/View.php';
 require __DIR__ . '/classes/BookStorage.php';
@@ -26,3 +26,15 @@ $data = ['books' => $books, 'feedback' => 0];
 $view = new View();
 $view->render(__DIR__ . '/templates/mainpage.php', $data);
 $view->display(__DIR__ . '/templates/mainpage.php', $data);
+*/
+
+require_once './autoload.php';
+require_once './vendor/autoload.php';
+
+use App\Entities\Book;
+use Nimarya\Simple\Entities\View;
+
+$view = new View();
+$book = new Book;
+$view->generator = Book::findEach();
+$view->display(__DIR__ . '/App/templates/mainpage.php');

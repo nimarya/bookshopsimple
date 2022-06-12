@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="templates\style.css">
+    <link rel="stylesheet" href="App\templates\style.css">
 </head>
 
 <body>
@@ -30,15 +30,15 @@
 
 
     <div class="containeritem">
-        <?php foreach ($data['books'] as $book) { ?>
+        <?php foreach ($generator as $book) { ?>
             <div class="item">
-                <img src="<?php echo $book['image']; ?>" alt="kitten" width="230px">
+                <img src="<?php echo $book->getImage(); ?>" alt="kitten" width="230px">
                 <?php
-                echo '<a href="secondpage.php?id=' . $book['id'] . '">' . $book['title'] . '</a>';
+                echo '<a href="secondpage.php?id=' . $book->getId() . '">' . $book->getTitle() . '</a>';
                 echo "<br>";
-                echo $book['author'];
+                echo $book->getAuthor();
                 echo "<br>";
-                echo "<b>" . $book['price'] . "</b> рублей";
+                echo "<b>" . $book->getPrice() . "</b> рублей";
                 ?>
             </div>
         <?php } ?>
