@@ -31,9 +31,15 @@ $view->display(__DIR__ . '/templates/mainpage.php', $data);
 require_once './autoload.php';
 require_once './vendor/autoload.php';
 
-use App\Controllers\BooksController;
+use App\Entities\Url;
 
-$controller = new BooksController(2);
-//$controller->action('Index');
+$url = Url::make();
 
-$controller->action('Show');
+$id = $url->getId();
+$action = $url->getAction();
+
+$controller = ucfirst($url->getController());
+$controllerName = 'App\Controllers\\' . $controller . 'Controller';
+
+$controller = new $controllerName($id);
+$controller->action($action);
