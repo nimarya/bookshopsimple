@@ -10,7 +10,13 @@ class BooksController extends Controller
 {
     protected function actionIndex()
     {
-        $this->view->generator = Book::findEach();
+        if (!empty($_POST['sort'])) {
+            $this->view->generator = Book::findEachOrdered();
+        }
+        if (empty($_POST['sort'])) {
+            $this->view->generator = Book::findEach();
+        }
+
         $this->view->display(__DIR__ . '/../../templates/index.php');
     }
 

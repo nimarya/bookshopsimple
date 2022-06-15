@@ -3,6 +3,8 @@
 namespace App\Entities;
 
 use Nimarya\Simple\Entities\Model;
+use Nimarya\Simple\Entities\Config;
+use Nimarya\Simple\Entities\DataBase;
 
 class Book extends Model
 {
@@ -12,6 +14,15 @@ class Book extends Model
     private string $description;
     private int $price;
     private string $image;
+
+    public static function findEachOrdered(): iterable
+    {
+        $config = Config::make();
+        $database = DataBase::make($config->dsn, $config->login, $config->password);
+
+        $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY price';
+        return $database->queryEach($sql, static::class, []);
+    }
 
     public function getId()
     {

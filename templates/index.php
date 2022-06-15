@@ -12,7 +12,7 @@
 <body>
     <h2 align="center">BEST BOOKSHOP</h2>
     <p>
-    <form action="index.php" method="post" align="center">
+    <form action="" method="post" align="center">
         <input type="submit" value="sortbyprice" class="search" name="sort">
     </form>
     </p>
