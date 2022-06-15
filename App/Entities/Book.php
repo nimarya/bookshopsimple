@@ -24,6 +24,18 @@ class Book extends Model
         return $database->queryEach($sql, static::class, []);
     }
 
+    //rewrite this method using substitutions!
+    public static function findEachSearch(string $search): iterable
+    {
+        $config = Config::make();
+        $database = DataBase::make($config->dsn, $config->login, $config->password);
+
+        $sql = 'SELECT * FROM ' . static::TABLE .
+            " WHERE author LIKE '%$search%' OR title LIKE '%$search%'";
+
+        return $database->queryEach($sql, static::class, []);
+    }
+
     public function getId()
     {
         return $this->id;

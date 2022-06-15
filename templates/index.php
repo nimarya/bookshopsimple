@@ -22,7 +22,7 @@
     </form>
     </p>
     <p>
-    <form action="index.php" method="post" align="center">
+    <form action="" method="post" align="center">
         <input type="string" name="search" class="search">
         <input type="submit" value="search" class="search">
     </form>
