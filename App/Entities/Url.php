@@ -32,6 +32,9 @@ class Url
             } elseif ((int)Url::$url->info[2] * 2 != 0 && empty(Url::$url->info[3])) {
                 Url::$url->action = 'Show';
                 Url::$url->id = (int)Url::$url->info[2];
+            } elseif (Url::$url->info[2] == 'deletecomment') {
+                Url::$url->action = 'DeleteComment';
+                Url::$url->id = 0;
             }
         }
         return Url::$url;

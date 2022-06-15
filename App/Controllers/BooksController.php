@@ -8,6 +8,19 @@ use App\Entities\Comment;
 
 class BooksController extends Controller
 {
+
+    protected function actionDeleteComment()
+    {
+        if (!empty($_POST['id'])) {
+            $id = (int)$_POST['id'];
+
+            $comment = Comment::getById($id);
+            Comment::deleteById($id);
+            header("Location: /books/" . $comment->getBookId());
+        }
+    }
+
+
     protected function actionIndex()
     {
 
@@ -22,9 +35,6 @@ class BooksController extends Controller
                 $this->view->generator = Book::findEach();
             }
         }
-
-
-
 
         $this->view->display(__DIR__ . '/../../templates/index.php');
     }

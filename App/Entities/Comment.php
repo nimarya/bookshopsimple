@@ -26,8 +26,12 @@ class Comment extends Model
         return $database->query($sql, static::class, $substitution);
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
 
-    public function getBookid()
+    public function getBookId()
     {
         return $this->bookid;
     }

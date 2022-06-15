@@ -27,8 +27,8 @@
                 echo ':';
                 echo  $comment->getOpinion();
             ?>
-                <form action="secondpage.php?id=<?php echo $data['book']['id']; ?>" method="post">
-                    <input type="checkbox" name="id" value="<?php echo $onerecord['id']; ?>" />
+                <form action="/books/deletecomment" method="post">
+                    <input type="checkbox" name="id" value="<?php echo $comment->getId(); ?>" />
                     <input type="submit" value="delete comment" />
                 </form>
             <?php echo "<br>";
