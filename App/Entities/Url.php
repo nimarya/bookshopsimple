@@ -38,6 +38,9 @@ class Url
             } elseif ((int)Url::$url->info[2] * 2 != 0 && Url::$url->info[3] == 'createcomment') {
                 Url::$url->action = 'CreateComment';
                 Url::$url->id = (int)Url::$url->info[2];
+            } elseif (Url::$url->info[2] == 'createbook') {
+                Url::$url->action = 'CreateBook';
+                Url::$url->id = 0;
             }
         }
         return Url::$url;

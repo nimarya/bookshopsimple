@@ -17,7 +17,7 @@
     </form>
     </p>
     <p>
-    <form action="addingbook.php" method="post" align="center">
+    <form action="books/createbook" method="post" align="center">
         <input type="submit" value="add new book" class="search" name="add">
     </form>
     </p>

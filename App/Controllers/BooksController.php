@@ -8,6 +8,36 @@ use App\Entities\Comment;
 
 class BooksController extends Controller
 {
+    protected function actionCreateBook()
+    {
+        if (isset($_FILES['myimg'])) {
+            if (0 == $_FILES['myimg']['error'] && ($_FILES['myimg']['type'] == 'image/jpeg' || $_FILES['myimg']['type'] == 'image/png')) {
+                move_uploaded_file($_FILES['myimg']['tmp_name'], __DIR__ . '/../../images/' . $_FILES['myimg']['full_path']);
+            } else {
+                echo 'ERROR WITH UPLOADING FILE';
+            }
+        }
+
+        if (!empty($_POST['title'])) {
+            $book = new Book;
+
+            $title = $_POST['title'];
+            $author = $_POST['author'];
+            $description =  $_POST['description'];
+            $price = (int)$_POST['price'];
+            $image = '/images/' . $_FILES['myimg']['full_path'];
+
+            $book->setTitle($title);
+            $book->setAuthor($author);
+            $book->setDescription($description);
+            $book->setPrice($price);
+            $book->setImage($image);
+
+            $book->insert();
+        }
+
+        $this->view->display(__DIR__ . '/../../templates/create.php');
+    }
 
     protected function actionDeleteComment()
     {

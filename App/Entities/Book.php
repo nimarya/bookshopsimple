@@ -65,4 +65,29 @@ class Book extends Model
     {
         return $this->image;
     }
+
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+    }
+
+    public function setAuthor(string $author)
+    {
+        $this->author = $author;
+    }
+
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    public function setPrice(int $price)
+    {
+        $this->price = $price;
+    }
+
+    public function setImage(string $image)
+    {
+        $this->image = $image;
+    }
 }
