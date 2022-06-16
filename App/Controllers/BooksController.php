@@ -43,11 +43,13 @@ class BooksController extends Controller
     {
         if (!empty($_POST['id'])) {
             $id = (int)$_POST['id'];
+            //validation of data - trow exception, if data is incorrect
 
             $comment = Comment::getById($id);
             Comment::deleteById($id);
-            header("Location: /books/" . $comment->getBookId());
         }
+
+        header("Location: /books/" . $comment->getBookId());
     }
 
     protected function actionCreateComment()
@@ -55,6 +57,7 @@ class BooksController extends Controller
         if (!empty($_POST['opinion']) && !empty($_POST['name'])) {
             $name = $_POST['name'];
             $opinion = $_POST['opinion'];
+            //validation of data - trow exception, if data is incorrect
 
             $comment = new Comment();
             $comment->setName($name);
@@ -63,23 +66,28 @@ class BooksController extends Controller
 
             $comment->insert();
         }
+
         header("Location: /books/" . $comment->getBookId());
     }
 
     protected function actionIndex()
     {
-
+        /* if (empty($_POST['sort']) && empty($_POST['search'])) {
+            $this->view->generator = Book::findEach();
+        }
         if (!empty($_POST['search'])) {
             $search = $_POST['search'];
             $this->view->generator = Book::findEachSearch($search);
         }
-        if (empty($_POST['search'])) {
-            if (!empty($_POST['sort'])) {
-                $this->view->generator = Book::findEachOrdered();
-            } elseif (empty($_POST['sort'])) {
-                $this->view->generator = Book::findEach();
-            }
+        if (!empty($_POST['sort'])) {
+            $this->view->generator = Book::findEachOrdered();
+        }*/
+        $search = '';
+        if (!empty($_POST['search'])) {
+            $search = $_POST['search'];
         }
+        $generator = Helper::chooseGenerator();
+        $this->view->generator = Book::$generator($search);
 
         $this->view->display(__DIR__ . '/../../templates/index.php');
     }
@@ -88,6 +96,7 @@ class BooksController extends Controller
     {
         $this->view->book = Book::getById($this->id);
         $this->view->comments = Comment::getComments($this->id);
+
         $this->view->display(__DIR__ . '/../../templates/show.php');
     }
 }

@@ -12,4 +12,21 @@ class Helper
             echo 'ERROR WITH UPLOADING FILE';
         }
     }
+
+    public static function chooseGenerator()
+    {
+        $generator = '';
+        if (empty($_POST['sort']) && empty($_POST['search'])) {
+            $generator = 'findEach';
+        }
+        if (!empty($_POST['search'])) {
+
+            $generator = 'findEachSearch';
+        }
+        if (!empty($_POST['sort'])) {
+            $generator = 'findEachOrdered';
+        }
+
+        return $generator;
+    }
 }
