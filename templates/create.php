@@ -13,7 +13,7 @@
 
     <h3>Adding new book</h3>
     <p>
-    <form action="createbook" method="post" enctype="multipart/form-data">
+    <form action="savebook" method="post" enctype="multipart/form-data">
         <p><input type="string" value="title" name="title" class="search"></p>
         <p><input type="string" value="author" name="author" class="search"></p>
         <p><textarea type="string" name="description" class="in">description</textarea></p>

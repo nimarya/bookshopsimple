@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entities;
+namespace App;
 
 class Url
 {
@@ -40,6 +40,9 @@ class Url
                 Url::$url->id = (int)Url::$url->info[2];
             } elseif (Url::$url->info[2] == 'createbook') {
                 Url::$url->action = 'CreateBook';
+                Url::$url->id = 0;
+            } elseif (Url::$url->info[2] == 'savebook') {
+                Url::$url->action = 'SaveBook';
                 Url::$url->id = 0;
             }
         }

@@ -3,7 +3,7 @@
 require_once './autoload.php';
 require_once './vendor/autoload.php';
 
-use App\Entities\Url;
+use App\Url;
 
 $url = Url::make();
 
