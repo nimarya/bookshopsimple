@@ -9,11 +9,11 @@ use Nimarya\Simple\Entities\DataBase;
 class Book extends Model
 {
     const TABLE = 'books';
-    private string $title;
-    private string $author;
-    private string $description;
-    private int $price;
-    private string $image;
+    protected string $title;
+    protected string $author;
+    protected string $description;
+    protected int $price;
+    protected string $image;
 
     public static function findEachOrdered(): iterable
     {

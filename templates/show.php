@@ -24,7 +24,7 @@
 
             <?php foreach ($comments as $comment) {
                 echo "<b>" . $comment->getName() . "</b>";
-                echo ':';
+                echo ': ';
                 echo  $comment->getOpinion();
             ?>
                 <form action="/books/deletecomment" method="post">
@@ -35,9 +35,9 @@
             } ?>
 
             <p>
-            <form action="secondpage.php?id=<?php echo $data['book']['id']; ?>" method="post">
+            <form action="/books/<?php echo $book->getId(); ?>/createcomment" method="post">
                 <input type="string" value="имя" name="name" class="search">
-                <input type="string" value="ваш отзыв" name="comment" class="search">
+                <input type="string" value="ваш отзыв" name="opinion" class="search">
                 <input type="submit" value="отправить" class="search">
             </form>
             </p>

@@ -20,6 +20,21 @@ class BooksController extends Controller
         }
     }
 
+    protected function actionCreateComment()
+    {
+        if (!empty($_POST['opinion']) && !empty($_POST['name'])) {
+            $name = $_POST['name'];
+            $opinion = $_POST['opinion'];
+
+            $comment = new Comment();
+            $comment->setName($name);
+            $comment->setOpinion($opinion);
+            $comment->setBookId($this->id);
+
+            $comment->insert();
+        }
+        header("Location: /books/" . $comment->getBookId());
+    }
 
     protected function actionIndex()
     {

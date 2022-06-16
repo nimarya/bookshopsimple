@@ -9,9 +9,9 @@ use Nimarya\Simple\Entities\DataBase;
 class Comment extends Model
 {
     const TABLE = 'feedback';
-    private string $bookid;
-    private string $name;
-    private string $opinion;
+    protected int $bookid;
+    protected string $name;
+    protected string $opinion;
 
     public static function getComments(int $id): array
     {
@@ -44,5 +44,20 @@ class Comment extends Model
     public function getOpinion()
     {
         return $this->opinion;
+    }
+
+    public function setBookId(int $bookid)
+    {
+        $this->bookid = $bookid;
+    }
+
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function setOpinion(string $opinion)
+    {
+        $this->opinion = $opinion;
     }
 }
